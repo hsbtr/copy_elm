@@ -1,24 +1,47 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+const components = require.context("./views", true, /\.vue$/);
+const pages = {};
 
 Vue.use(Router);
+components
+  .keys()
+  .map(value => components(value))
+  .filter(value => value.default)
+  .forEach(value => {
+    pages[value.default.name] = value.default;
+  });
 
+console.log(pages);
 export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      redirect: "/navBut"
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      path: "/navBut",
+      name: "navBut",
+      redirect: "/navBut/home",
+      component: pages.navBut,
+      children: [
+        {
+          path: "home",
+          component: pages.home
+        },
+        {
+          path: "find",
+          component: pages.find
+        },
+        {
+          path: "order",
+          component: pages.order
+        },
+        {
+          path: "my",
+          component: pages.my
+        }
+      ]
     }
   ]
 });
