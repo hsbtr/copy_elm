@@ -1,6 +1,6 @@
 <template>
   <div class="page_warp">
-    <div class="page">
+    <div class="page" ref="page">
       <transition :name="test">
         <router-view></router-view>
       </transition>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import BScroll from "better-scroll";
 export default {
   name: "navBut",
   data() {
@@ -79,7 +80,17 @@ export default {
   components: {},
   // 生命周期 被创建后
   created() {
-    console.log(1);
+    console.log(this.$router.path);
+  },
+  mounted() {
+    /*this.$nextTick(() => {
+      this.scroll = new BScroll(this.$refs.page, {
+        click: true,
+        tap: true,
+        mouseWheel: true,
+        probeType: 2
+      });
+    });*/
   }
 };
 </script>
@@ -90,6 +101,7 @@ export default {
   flex-direction: column;
   .page {
     height: 85vh;
+    overflow: auto;
     box-sizing: border-box;
   }
   .nav {
@@ -102,6 +114,7 @@ export default {
     left: 0;
     box-sizing: border-box;
     box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1);
+    background: #fff;
     .but {
       flex: 1;
       display: flex;

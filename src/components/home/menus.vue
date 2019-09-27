@@ -1,6 +1,6 @@
 <template>
   <div class="menus">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" ref="wiper">
       <swiper-slide v-for="(val, index) in menus" :key="index">
         <router-link
           to=""
@@ -22,6 +22,7 @@ export default {
   name: "menus",
   data() {
     return {
+      wiper: "",
       menus: [
         {
           id: [
@@ -91,7 +92,10 @@ export default {
       swiperOption: {
         // 分页器
         pagination: {
-          el: ".swiper-pagination"
+          el: ".swiper-pagination",
+          type: "bullets",
+          bulletClass: "my-bullet",
+          bulletActiveClass: "my-bullet-active"
         }
       }
     };
@@ -109,11 +113,8 @@ export default {
   // 注册组件
   components: {},
   // 生命周期 被创建后
-  created() {
-    if (this.menus.length > 0) {
-
-    }
-  }
+  created() {},
+  mounted() {}
 };
 </script>
 
@@ -122,26 +123,50 @@ export default {
   width: 100%;
   height: 354px;
   box-sizing: border-box;
+  overflow: hidden;
   .swiper-container {
     height: 100%;
+    position: relative;
     .swiper-wrapper {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow: hidden;
+      width: 100%;
       .swiper-slide {
-        width: 100vw!important;
         display: flex;
         flex-wrap: wrap;
+        align-content: flex-start;
         .menus_but {
           width: 20%;
-          margin-top: 12px;
+          margin-top: 22px;
           display: flex;
           flex-direction: column;
+          /*border: solid red 1px;*/
+          box-sizing: border-box;
           img {
             width: 90px;
             height: 90px;
+            margin: 0 auto;
+          }
+          .text {
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            font-size: 16px;
           }
         }
+      }
+    }
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      .my-bullet {
+        width: 18px;
+        height: 3px;
+        opacity: 0.2;
+        margin: 0 3px;
+        background: #000;
+      }
+      .my-bullet-active {
+        background: #fe7100;
       }
     }
   }

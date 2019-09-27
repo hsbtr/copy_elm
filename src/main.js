@@ -2,9 +2,12 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import swiper from "vue-awesome-swiper"
+import bus from "./event";
+import swiper from "vue-awesome-swiper";
 import "./registerServiceWorker";
+import "swiper/dist/css/swiper.css";
 
+Vue.use(bus);
 Vue.use(swiper);
 
 Vue.config.productionTip = false;

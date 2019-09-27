@@ -16,12 +16,15 @@
       </router-link>
     </div>
     <menus></menus>
-    <div></div>
+    <advertising></advertising>
+    <recommend></recommend>
   </div>
 </template>
 
 <script>
 import menus from "../components/home/menus";
+import advertising from "../components/home/advertising";
+import recommend from "../components/home/recommend";
 
 export default {
   name: "home",
@@ -42,7 +45,9 @@ export default {
   filter: {},
   // 注册组件
   components: {
-    menus
+    menus,
+    advertising,
+    recommend
   },
   // 生命周期 被创建后
   created() {}
@@ -54,6 +59,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-content: flex-start;
   .head_locat {
     padding: 20px 28px 0 28px;
     background: linear-gradient(90deg, #0af, #0085ff);
@@ -81,7 +87,8 @@ export default {
           color: #fff;
           font-size: 34px;
           font-weight: 700;
-          font-family: 'Helvetica Neue',Tahoma,Arial,PingFangSC-Regular,'Hiragino Sans GB','Microsoft Yahei',sans-serif;
+          font-family: "Helvetica Neue", Tahoma, Arial, PingFangSC-Regular,
+            "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -91,6 +98,10 @@ export default {
   }
   .head_seek {
     padding: 15px 28px;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 999;
+    top: 0;
     display: flex;
     background: linear-gradient(90deg, #0af, #0085ff);
     .seek_but {
