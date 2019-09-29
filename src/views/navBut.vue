@@ -1,10 +1,8 @@
 <template>
   <div class="page_warp">
-    <div class="page" ref="page">
-      <transition :name="test">
-        <router-view></router-view>
-      </transition>
-    </div>
+    <transition :name="test">
+      <router-view></router-view>
+    </transition>
     <div class="nav">
       <router-link
         :to="val.src"
@@ -23,8 +21,6 @@
 </template>
 
 <script>
-import BScroll from "better-scroll";
-
 export default {
   name: "navBut",
   data() {
@@ -85,29 +81,13 @@ export default {
   created() {
     console.log(this.$router.path);
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.scroll = new BScroll(this.$refs.page, {
-        scrollY: true,
-        scrollX: false,
-        click: true,
-        tap: true,
-        probeType: 2
-      });
-    });
-  }
+  mounted() {}
 };
 </script>
 
 <style scoped lang="scss">
 .page_warp {
-  display: flex;
-  flex-direction: column;
-  .page {
-    height: 85vh;
-    overflow: auto;
-    box-sizing: border-box;
-  }
+  width: 100%;
   .nav {
     width: 100%;
     height: 91px;

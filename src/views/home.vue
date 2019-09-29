@@ -1,27 +1,30 @@
 <template>
-  <div class="home">
-    <div class="head_locat">
-      <div class="location_box">
-        <div class="location" @click="siteAction()">
-          <img src="../assets/img/locat.png" class="place" alt="" />
-          <span class="content">武汉市</span>
-          <img src="../assets/img/sanjiaoxing.png" class="triangle" alt="" />
+  <div class="home" ref="page">
+    <div class="scroll">
+      <div class="head_locat">
+        <div class="location_box">
+          <div class="location" @click="siteAction()">
+            <img src="../assets/img/locat.png" class="place" alt="" />
+            <span class="content">武汉市</span>
+            <img src="../assets/img/sanjiaoxing.png" class="triangle" alt="" />
+          </div>
         </div>
       </div>
+      <div class="head_seek">
+        <router-link to="" class="seek_but">
+          <img src="../assets/img/seek.png" alt="" />
+          <span class="placeholder">{{ hint }}</span>
+        </router-link>
+      </div>
+      <menus></menus>
+      <advertising></advertising>
+      <recommend></recommend>
     </div>
-    <div class="head_seek">
-      <router-link to="" class="seek_but">
-        <img src="../assets/img/seek.png" alt="" />
-        <span class="placeholder">{{ hint }}</span>
-      </router-link>
-    </div>
-    <menus></menus>
-    <advertising></advertising>
-    <recommend></recommend>
   </div>
 </template>
 
 <script>
+import BScroll from "better-scroll";
 import menus from "../components/home/menus";
 import advertising from "../components/home/advertising";
 import recommend from "../components/home/recommend";
@@ -50,17 +53,26 @@ export default {
     recommend
   },
   // 生命周期 被创建后
-  created() {}
+  created() {},
+  mounted() {
+    this.$nextTick(() => {
+      this.scroll = new BScroll(this.$refs.page, {
+        scrollY: true,
+        scrollX: false,
+        click: true,
+        tap: true,
+        probeType: 2
+      });
+    });
+  }
 };
 </script>
 
 <style scoped lang="scss">
 .home {
   width: 100%;
-  /*display: inline;*/
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*align-content: flex-start;*/
+  height: 90vh;
+  overflow: auto;
   .head_locat {
     padding: 20px 28px 0 28px;
     background: linear-gradient(90deg, #0af, #0085ff);
