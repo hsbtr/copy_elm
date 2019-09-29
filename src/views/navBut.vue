@@ -24,6 +24,7 @@
 
 <script>
 import BScroll from "better-scroll";
+
 export default {
   name: "navBut",
   data() {
@@ -63,10 +64,12 @@ export default {
     setButState: function(val, index) {
       this.currKey = index;
       console.log(index);
-      if (index > 0) {
-        this.test = "test-left";
-      } else if (index < 3) {
+      if (index < 3) {
+        console.log("right");
         this.test = "test-right";
+      } else if (index > 0) {
+        console.log("left");
+        this.test = "test-left";
       }
     }
   },
@@ -83,14 +86,15 @@ export default {
     console.log(this.$router.path);
   },
   mounted() {
-    /*this.$nextTick(() => {
+    this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.page, {
+        scrollY: true,
+        scrollX: false,
         click: true,
         tap: true,
-        mouseWheel: true,
         probeType: 2
       });
-    });*/
+    });
   }
 };
 </script>

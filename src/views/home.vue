@@ -57,9 +57,10 @@ export default {
 <style scoped lang="scss">
 .home {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
+  /*display: inline;*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-content: flex-start;*/
   .head_locat {
     padding: 20px 28px 0 28px;
     background: linear-gradient(90deg, #0af, #0085ff);
