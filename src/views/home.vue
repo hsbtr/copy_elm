@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import BScroll from "better-scroll";
+// import BScroll from "better-scroll";
 import menus from "../components/home/menus";
 import advertising from "../components/home/advertising";
 import recommend from "../components/home/recommend";
@@ -55,7 +55,7 @@ export default {
   // 生命周期 被创建后
   created() {},
   mounted() {
-    this.$nextTick(() => {
+    /*this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.page, {
         scrollY: true,
         scrollX: false,
@@ -63,7 +63,7 @@ export default {
         tap: true,
         probeType: 2
       });
-    });
+    });*/
   }
 };
 </script>
@@ -72,7 +72,10 @@ export default {
 .home {
   width: 100%;
   height: 90vh;
-  overflow: auto;
+  overflow: visible;
+  .scroll {
+    padding: 0 0 130px 0;
+  }
   .head_locat {
     padding: 20px 28px 0 28px;
     background: linear-gradient(90deg, #0af, #0085ff);

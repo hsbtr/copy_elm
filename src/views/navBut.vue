@@ -90,7 +90,8 @@ export default {
   width: 100%;
   .nav {
     width: 100%;
-    height: 91px;
+    height: 120px;
+    padding: 9px 0 0 0;
     display: flex;
     justify-content: space-between;
     position: fixed;

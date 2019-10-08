@@ -27,9 +27,9 @@
           src="../../assets/img/70008646170d1f654e926a2aaa3afpng.png"
           alt=""
         />
-        <span class="title"></span>
-        <span class="explain"></span>
-        <button></button>
+        <span class="title">{{ title }}</span>
+        <span class="explain">{{ explain }}</span>
+        <button class="but">登录</button>
       </div>
       <div class="list_main">
         <div class=""></div>
@@ -44,6 +44,8 @@ export default {
   data() {
     return {
       butKey: 0,
+      title: "没有结果",
+      explain: "登录后查看更多商家",
       nav: [
         {
           name: "综合排序",
@@ -149,6 +151,28 @@ export default {
       justify-content: center;
       img {
         width: 400px;
+      }
+      .title {
+        margin: 25px 0 20px 0;
+        color: #6a6a6a;
+        font-size: 36px;
+        font-weight: 400;
+      }
+      .explain {
+        margin: 0 0 20px 0;
+        color: #999;
+        font-size: 16px;
+      }
+      .but {
+        min-width: 240px;
+        padding: 20px;
+        color: #fff;
+        text-align: center;
+        font-size: 24px;
+        font-family: inherit;
+        border: none;
+        border-radius: 4px;
+        background: #56d176;
       }
     }
     .list_main {
