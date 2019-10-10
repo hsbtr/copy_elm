@@ -1,4 +1,4 @@
-# music
+# copy_elm
 
 ## Project setup
 ```
