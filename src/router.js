@@ -4,6 +4,7 @@ const components = require.context("./views", true, /\.vue$/);
 const pages = {};
 
 Vue.use(Router);
+
 components
   .keys()
   .map(value => components(value))
@@ -11,35 +12,40 @@ components
   .forEach(value => {
     pages[value.default.name] = value.default;
   });
-
 console.log(pages);
+
 export default new Router({
   routes: [
     {
-      path: "/",
-      redirect: "/navBut"
-    },
-    {
-      path: "/navBut",
-      name: "navBut",
-      redirect: "/navBut/home",
-      component: pages.navBut,
+      path: "/page",
+      name: "page",
+      redirect: "/page/home",
+      component: pages.page,
+      props: true,
       children: [
         {
           path: "home",
-          component: pages.home
+          name: "home",
+          component: pages.home,
+          props: true
         },
         {
           path: "find",
-          component: pages.find
+          name: "find",
+          component: pages.find,
+          props: true
         },
         {
           path: "order",
-          component: pages.order
+          name: "order",
+          component: pages.order,
+          props: true
         },
         {
           path: "my",
-          component: pages.my
+          name: "my",
+          component: pages.my,
+          props: true
         }
       ]
     }

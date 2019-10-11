@@ -5,7 +5,7 @@
     </transition>
     <div class="nav">
       <router-link
-        :to="val.src"
+        :to="{ path: val.src, query: { id: val.id } }"
         v-for="(val, index) in navBut"
         :key="val.id"
         class="but"
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "navBut",
+  name: "page",
   data() {
     return {
       currKey: 0,
@@ -83,9 +83,12 @@ export default {
   components: {},
   // 生命周期 被创建后
   created() {
-    console.log(this.$router.path);
+    console.log(this.$route.path);
   },
-  mounted() {}
+  mounted() {
+    let key = this.$route.query.id;
+    console.log(key);
+  }
 };
 </script>
 
