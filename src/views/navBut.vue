@@ -7,7 +7,7 @@
       <router-link
         :to="val.src"
         v-for="(val, index) in navBut"
-        :key="index"
+        :key="val.id"
         class="but"
         @click.native="setButState(val, index)"
       >
@@ -29,24 +29,28 @@ export default {
       test: null,
       navBut: [
         {
+          id: 1,
           name: "首页",
           src: "./home",
           no: require("../assets/img/elm.png"),
           yes: require("../assets/img/elm1.png")
         },
         {
+          id: 2,
           name: "发现",
           src: "./find",
           no: require("../assets/img/find.png"),
           yes: require("../assets/img/find1.png")
         },
         {
+          id: 3,
           name: "订单",
           src: "./order",
           no: require("../assets/img/order.png"),
           yes: require("../assets/img/order1.png")
         },
         {
+          id: 4,
           name: "我的",
           src: "./my",
           no: require("../assets/img/my.png"),

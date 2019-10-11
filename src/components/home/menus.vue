@@ -27,42 +27,52 @@ export default {
         {
           id: [
             {
+              key: 1,
               name: "美食",
               icon: require("../../assets/img/a867c870b22bc74c87c348b75528djpeg.jpeg")
             },
             {
+              key: 2,
               name: "大牌蕙吃",
               icon: require("../../assets/img/b02bd836411c016935d258b300cfejpeg.jpeg")
             },
             {
+              key: 3,
               name: "商超便利",
               icon: require("../../assets/img/76a23eb90dada42528bc41499d6f8jpeg.jpeg")
             },
             {
+              key: 4,
               name: "水果",
               icon: require("../../assets/img/dd7c960f08cdc756b1d3ad54978fdjpeg.jpeg")
             },
             {
+              key: 5,
               name: "医药健康",
               icon: require("../../assets/img/af108e256ebc9f02db599592ae655jpeg.jpeg")
             },
             {
+              key: 6,
               name: "浪漫鲜花",
               icon: require("../../assets/img/b02bd836411c016935d258b300cfejpeg.jpeg")
             },
             {
+              key: 7,
               name: "跑腿代购",
               icon: require("../../assets/img/c888acb2c8ba9e0c813f36ec9e90ajpeg.jpeg")
             },
             {
+              key: 8,
               name: "汉堡披萨",
               icon: require("../../assets/img/bceb19258e3264e64fb856722c3c1jpeg.jpeg")
             },
             {
+              key: 9,
               name: "厨房生鲜",
               icon: require("../../assets/img/432619fb21a40b05cd25d11eca02djpeg.jpeg")
             },
             {
+              key: 10,
               name: "甜品饮品",
               icon: require("../../assets/img/e42997b86b232161a5a16ab813ae8jpeg.jpeg")
             }
@@ -71,18 +81,22 @@ export default {
         {
           id: [
             {
+              key: 11,
               name: "素食简餐",
               icon: require("../../assets/img/314b6da88ab6c7ae9828f91652d40jpeg.jpeg")
             },
             {
+              key: 12,
               name: "地方小吃",
               icon: require("../../assets/img/6f2631288a44ec177204e05cbcb93jpeg.jpeg")
             },
             {
+              key: 13,
               name: "大牌惠吃",
               icon: require("../../assets/img/b02bd836411c016935d258b300cfejpeg.jpeg")
             },
             {
+              key: 14,
               name: "素食简餐",
               icon: require("../../assets/img/7bddb07503aea4b711236348e2632jpeg.jpeg")
             }
