@@ -29,28 +29,28 @@ export default {
       test: null,
       navBut: [
         {
-          id: 1,
+          id: 0,
           name: "首页",
           src: "./home",
           no: require("../assets/img/elm.png"),
           yes: require("../assets/img/elm1.png")
         },
         {
-          id: 2,
+          id: 1,
           name: "发现",
           src: "./find",
           no: require("../assets/img/find.png"),
           yes: require("../assets/img/find1.png")
         },
         {
-          id: 3,
+          id: 2,
           name: "订单",
           src: "./order",
           no: require("../assets/img/order.png"),
           yes: require("../assets/img/order1.png")
         },
         {
-          id: 4,
+          id: 3,
           name: "我的",
           src: "./my",
           no: require("../assets/img/my.png"),
@@ -82,12 +82,15 @@ export default {
   // 注册组件
   components: {},
   // 生命周期 被创建后
-  created() {
-    console.log(this.$route.path);
-  },
+  created() {},
   mounted() {
     let key = this.$route.query.id;
     console.log(key);
+    if (key) {
+      this.currKey = Number(key);
+    } else {
+      this.currKey = 0;
+    }
   }
 };
 </script>
