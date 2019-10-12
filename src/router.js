@@ -18,14 +18,10 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      redirect: "/navBut"
-    },
-    {
-      path: "/navBut",
-      name: "navBut",
-      redirect: "/navBut/home",
-      component: pages.navBut,
+      path: "/page",
+      name: "page",
+      redirect: "/page/home",
+      component: pages.page,
       children: [
         {
           path: "home",

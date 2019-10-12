@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "navBut",
+  name: "page",
   data() {
     return {
       currKey: 0,
