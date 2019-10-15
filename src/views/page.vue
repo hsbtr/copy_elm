@@ -76,7 +76,13 @@ export default {
   // 计算属性
   computed: {},
   // 观察者
-  watch: {},
+  watch: {
+    $route(to, from) {
+      console.log(to); // 当前路由
+      console.log(from); // 离开的路由
+      this.test = to.meta.key < from.meta.key ? "test-left" : "test-right";
+    }
+  },
   // 过滤器
   filter: {},
   // 注册组件
@@ -127,40 +133,7 @@ export default {
       }
     }
   }
-  // 动画 选中色
-  .test-left-enter {
-    transform: translate(-100vw, 0);
-  }
-  .test-left-leave-to {
-    transform: translate(100vw, 0);
-  }
-  .test-left-enter-active,
-  .test-left-leave-active {
-    transition: all ease-in 0.3s;
-  }
-  .test-left-enter-to {
-    transform: translate(0, 0);
-  }
-  .test-left-leave {
-    transform: translate(0, 0);
-  }
-
-  .test-right-enter {
-    transform: translate(100vw, 0);
-  }
-  .test-right-leave-to {
-    transform: translate(-100vw, 0);
-  }
-  .test-right-enter-active,
-  .test-right-leave-active {
-    transition: all ease-in 0.3s;
-  }
-  .test-right-enter-to {
-    transform: translate(0, 0);
-  }
-  .test-right-leave {
-    transform: translate(0, 0);
-  }
+  // 选中色
   .active {
     color: #49a0e8;
   }

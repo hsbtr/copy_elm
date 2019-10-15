@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition :name="cartoon">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -8,9 +10,17 @@
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      cartoon: null
+    };
   },
-  components: {}
+  methods: {},
+  computed: {},
+  watch: {},
+  filter: {},
+  components: {},
+  created() {},
+  mounted() {}
 };
 </script>
 
@@ -24,6 +34,40 @@ export default {
   width: 100%;
   height: 100vh;
   background: #fff;
+  // 动画
+  .test-left-enter {
+    transform: translate(-100vw, 0);
+  }
+  .test-left-leave-to {
+    transform: translate(100vw, 0);
+  }
+  .test-left-enter-active,
+  .test-left-leave-active {
+    transition: all ease-in 0.3s;
+  }
+  .test-left-enter-to {
+    transform: translate(0, 0);
+  }
+  .test-left-leave {
+    transform: translate(0, 0);
+  }
+
+  .test-right-enter {
+    transform: translate(100vw, 0);
+  }
+  .test-right-leave-to {
+    transform: translate(-100vw, 0);
+  }
+  .test-right-enter-active,
+  .test-right-leave-active {
+    transition: all ease-in 0.3s;
+  }
+  .test-right-enter-to {
+    transform: translate(0, 0);
+  }
+  .test-right-leave {
+    transform: translate(0, 0);
+  }
 }
 a {
   text-decoration: none;
