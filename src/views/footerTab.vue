@@ -1,8 +1,5 @@
 <template>
-  <div class="page_warp">
-    <transition :name="test">
-      <router-view></router-view>
-    </transition>
+  <div class="footer">
     <div class="nav">
       <router-link
         :to="{ path: val.src, query: { id: val.id } }"
@@ -22,7 +19,7 @@
 
 <script>
 export default {
-  name: "page",
+  name: "footerTab",
   data() {
     return {
       currKey: 0,
@@ -31,28 +28,28 @@ export default {
         {
           id: 0,
           name: "首页",
-          src: "./home",
+          src: "/home",
           no: require("../assets/img/elm.png"),
           yes: require("../assets/img/elm1.png")
         },
         {
           id: 1,
           name: "发现",
-          src: "./find",
+          src: "/find",
           no: require("../assets/img/find.png"),
           yes: require("../assets/img/find1.png")
         },
         {
           id: 2,
           name: "订单",
-          src: "./order",
+          src: "/order",
           no: require("../assets/img/order.png"),
           yes: require("../assets/img/order1.png")
         },
         {
           id: 3,
           name: "我的",
-          src: "./my",
+          src: "/my",
           no: require("../assets/img/my.png"),
           yes: require("../assets/img/my1.png")
         }
@@ -102,7 +99,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.page_warp {
+.footer {
   width: 100%;
   .nav {
     width: 100%;

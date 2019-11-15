@@ -9,6 +9,25 @@ function resolve(dir) {
 }
 
 module.exports = {
+  publicPath: "/copy_elm/",
+  // webpack-dev-server 相关配置
+  devServer: {
+    // 设置代理
+    hot: true, //热加载
+    host: "0.0.0.0", //ip地址
+    port: 8080, //端口
+    https: false, //false关闭https，true为开启
+    open: true, //自动打开浏览器
+    proxy: {
+      "/api": {
+        //本地
+        target: "http://localhost:3000",
+        // 如果要代理 websockets
+        ws: false,
+        changeOrigin: true
+      }
+    }
+  },
   // css相关配置
   css: {
     // 是否使用css分离插件 ExtractTextPlugin 生产环境下是true,开发环境下是false
@@ -38,24 +57,6 @@ module.exports = {
         return opts;
       });
       // config.resolve.alias.set("img", resolve("http://baidu.com"));
-    }
-  },
-  // webpack-dev-server 相关配置
-  devServer: {
-    // 设置代理
-    hot: true, //热加载
-    host: "0.0.0.0", //ip地址
-    port: 8080, //端口
-    https: false, //false关闭https，true为开启
-    open: true, //自动打开浏览器
-    proxy: {
-      "/api": {
-        //本地
-        target: "http://localhost:3000",
-        // 如果要代理 websockets
-        ws: false,
-        changeOrigin: true
-      }
     }
   },
   pluginOptions: {
